@@ -1,86 +1,19 @@
-# Incident Timeline
+# Investigation Register and Timeline
 
-This timeline summarizes the sequence of security events investigated in the Wazuh SOC lab.
+This file tracks evidence collection status for the independent Wazuh investigations. It is a case register, not a shared incident timeline. The cases below are not linked to one another unless separately verified evidence supports correlation.
 
-## Timeline
+**Current evidence status:** Pending. No Wazuh event timestamps, outcomes, or incident sequence have been entered yet.
 
-### 1. Failed Authentication Attempts
-Multiple failed login attempts were observed on the Windows endpoint.
+| Case | Investigation | Time observed (with timezone) | Evidence status | Case record |
+|---|---|---|---|---|
+| 01 | Failed login analysis | Pending | Evidence pending | [Investigation 01](investigations/01-failed-login-analysis.md) |
+| 02 | Suspicious PowerShell | Pending | Evidence pending | [Investigation 02](investigations/02-suspicious-powershell.md) |
+| 03 | Privileged account change | Pending | Evidence pending | [Investigation 03](investigations/03-privileged-account-change.md) |
+| 04 | File integrity monitoring | Pending | Evidence pending | [Investigation 04](investigations/04-file-integrity-monitoring.md) |
+| 05 | Network visibility review | Pending | Evidence pending | [Investigation 05](investigations/05-network-recon-detection-gap.md) |
+| 06 | False-positive triage | Pending | Evidence pending | [Investigation 06](investigations/06-false-positive-triage.md) |
+| 07 | Scheduled task review | Pending | Evidence pending | [Investigation 07](investigations/07-scheduled-task-persistence.md) |
 
-**Relevant Event**
-- Event ID: 4625
-- Purpose: Failed logon detection
+## Evidence entry guidance
 
-The activity was reviewed to determine whether the failures represented normal user behavior or suspicious authentication attempts.
-
-### 2. Successful Authentication
-A successful login event was reviewed after the failed authentication activity.
-
-**Relevant Event**
-- Event ID: 4624
-- Purpose: Successful logon detection
-
-The login was correlated with the previous failed attempts using timestamps, username, host context, source information, and logon type.
-
-### 3. Suspicious PowerShell Execution
-PowerShell activity was detected through Sysmon process telemetry.
-
-**Relevant Event**
-- Sysmon Event ID: 1
-- Process: powershell.exe
-
-The investigation reviewed:
-- User
-- Image
-- ParentImage
-- CommandLine
-- ParentCommandLine
-- Execution time
-
-PowerShell itself is legitimate, so the process was evaluated based on its execution context and related activity rather than being treated as malicious automatically.
-
-### 4. New Local User Creation
-A new local user account was created on the endpoint.
-
-**Relevant Event**
-- Event ID: 4720
-- Purpose: User account creation
-
-The account creation was correlated with the surrounding authentication and process activity.
-
-### 5. Administrator Group Modification
-A user was added to a privileged local group.
-
-**Relevant Event**
-- Event ID: 4732
-- Purpose: Member added to a local security group
-
-This activity increased the severity of the investigation because it represented a privilege-related account modification.
-
-### 6. File Integrity Monitoring Activity
-File Integrity Monitoring detected file changes within the monitored directory.
-
-The investigation reviewed:
-- File path
-- Change type
-- Timestamp
-- Related user/host context
-
-## Correlated Investigation
-
-The events were not treated independently.
-
-The investigation followed the sequence:
-
-```text
-Failed authentication activity
-        ↓
-Successful authentication
-        ↓
-PowerShell execution
-        ↓
-New user creation
-        ↓
-Administrator group modification
-        ↓
-File modification activity
+After examining the actual Wazuh event, add its timestamp and timezone, host/agent, source event or rule, concise observed facts, and a link to the supporting screenshot. Keep separate cases separate. Do not infer a causal sequence from case numbering or from scenario descriptions. If no event is found, document the search window and relevant collection or retention limitation as a visibility gap.
