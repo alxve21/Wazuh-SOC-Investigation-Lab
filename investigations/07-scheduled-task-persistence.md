@@ -1,6 +1,6 @@
 # Investigation 07 — Scheduled Task Creation Review
 
-**Status:** Evidence pending. This standalone case examines a scheduled-task creation or change; no event is claimed until verified in Wazuh.
+**Status:** No matching scheduled-task event was found in the Wazuh search you reviewed. The search window and audit, collection, and retention coverage have not been verified, so this remains an inconclusive visibility gap.
 
 ## Scenario
 
@@ -8,7 +8,7 @@ A new or modified Windows scheduled task is reviewed to determine whether its cr
 
 ## Safe lab boundary
 
-Use an existing authorized event or create only a temporary, harmless task in a disposable lab VM with approval. A test task may launch Notepad under the current user; do not create a task that runs scripts, downloads content, changes security settings, or executes with elevated privileges. Remove only the temporary test task after evidence capture.
+Use an existing authorized event or create only a temporary, harmless task in a disposable lab VM with approval. A test task may launch Notepad under the current user; do not create a task that runs scripts, downloads content, changes security settings, or executes with elevated privileges. Remove only the temporary test task after preserving the relevant event and task details.
 
 ## Detection and investigation
 
@@ -22,19 +22,15 @@ Use an existing authorized event or create only a temporary, harmless task in a 
 
 Close as authorized only when the task configuration and creator match an approved change. Otherwise document suspicious or inconclusive elements and follow the lab escalation process. This case is independent of the other investigations.
 
-## Observed evidence to add
+## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Event time and timezone | Pending |
+| Event time and timezone | No matching event was reported in the reviewed search; the interval and timezone are not available |
 | Windows agent/hostname | Pending |
-| Event ID/provider | Pending |
-| Task name and path | Pending |
-| Creator and task principal | Pending |
-| Trigger and action | Pending |
-| Wazuh rule ID/level | Pending |
-| Change authorization and disposition | Pending |
-
-## Screenshots
-
-Add the Wazuh event overview and expanded event details under ../screenshots/ using ../screenshots/README.md. Remove secrets and unrelated data.
+| Event ID/provider | No matching 4698/4702 event was reported; provider details are not available |
+| Task name and path | Not available |
+| Creator and task principal | Not available |
+| Trigger and action | Not available |
+| Wazuh rule ID/level | Not available |
+| Change authorization and disposition | Inconclusive visibility gap; audit, collection, and retention coverage need verification |
