@@ -25,17 +25,11 @@ Treat an unexplained change to a sensitive monitored file as suspicious until th
 
 ![Wazuh Syscheck search results](../screenshots/04-syscheck-search.png)
 
-*The `rule.groups:syscheck` search shows four Syscheck results, including file-change descriptions. This overview does not show the monitored path or verify the dedicated `WazuhLab-FIM` marker-file scenario. No path-level or benign/suspicious disposition is claimed.*
+*The rule.groups:syscheck search shows four Syscheck results, including file-change descriptions. This overview does not show the monitored path or verify the dedicated WazuhLab-FIM marker-file scenario. No path-level or benign/suspicious disposition is claimed.*
 
 ## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Exercise time and timezone | Not established by the overview |
-| Windows agent/hostname | Not established by the overview |
-| Monitored file path | Not shown in the published overview |
-| FIM event type | File-change alert descriptions appear; specific case event not verified |
-| Before/after hash values | Not shown in the published overview |
-| Related user/process, if available | Not shown in the published overview |
-| Wazuh rule ID/level | Search overview includes rule IDs 550, 553, and 554; event-level context not reviewed here |
+| Visible Wazuh rules | Search overview includes rule IDs 550, 553, and 554; event-level context was not reviewed |
 | Analyst disposition | Inconclusive; the dedicated marker-file event is not verified |
