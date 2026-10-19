@@ -15,9 +15,9 @@ Use only the isolated, authorized lab. The sequence below is a hypothesis to tes
 | Suspicious execution | Sysmon 1 or Security 4688; process lineage and command line | An unexpected process chain and corroborating command or follow-on activity | No Office-to-PowerShell lineage or correlated process chain is verified |
 | Account or privilege change | Security 4720, 4728/4732 or applicable local group event | Actor, target, group scope, and resulting membership confirmed | Two 4732 results appear in an overview; actor, member, resulting membership, and authorization remain unverified |
 | Scheduled task or other persistence | Security 4698/4702; task XML and action | A task configuration and creator that are unexpected and attributable | No matching task event was reported in the reviewed search; audit and collection coverage are unknown |
-| Lateral movement | Authentication and endpoint telemetry on another host | A source-to-destination relationship with matching account/time and remote logon context | Pending verification |
-| Possible data transfer | Available endpoint/network telemetry | A specific transfer event with destination, process, and data context | Pending verification |
-| Log clearing | Security 1102 or relevant provider event | A verified clear event with host, actor, and surrounding context | Pending verification |
+| Lateral movement | Authentication and endpoint telemetry on another host | A source-to-destination relationship with matching account/time and remote logon context | Not assessed in the reviewed evidence |
+| Possible data transfer | Available endpoint/network telemetry | A specific transfer event with destination, process, and data context | Not assessed in the reviewed evidence |
+| Log clearing | Security 1102 or relevant provider event | A verified clear event with host, actor, and surrounding context | Not assessed in the reviewed evidence |
 
 Event availability depends on Windows audit policy, Sysmon configuration, Wazuh collection/decoding, and retention. Event IDs above are search leads; verify the provider and rendered fields in the actual records. A missing event is a visibility gap, not evidence that the activity did not happen. Network transfer or exfiltration cannot be concluded from endpoint alerts alone without supporting telemetry.
 
