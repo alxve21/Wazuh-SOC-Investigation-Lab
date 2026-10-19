@@ -13,7 +13,7 @@ This folder contains four genuine dashboard overview captures from the reviewed 
 
 ## Evidence limitations
 
-These overviews are preliminary evidence only. Use the individual investigation pages for the exact status and limitations of each case. Do not interpret a query result as proof of the scenario, intent, or correlation with another case.
+These overviews are preliminary evidence only. Use the individual investigation pages for the exact status and limitations of each case. Do not interpret a query result as proof of the scenario, intent, or correlation with another case. An available 4624 search was not published as correlation evidence because it does not tie a successful logon to the same source, target account, and time window as the 4625 results.
 
 Other captures from the archive were not published where they showed local account, host, or IP details, or where their contents did not match the investigation they were named for. In particular, the process-search capture shows command-prompt alert descriptions, not Office-launched PowerShell; the detailed FIM capture does not establish an authorized software update. No benign or malicious disposition should be inferred from those images.
 
