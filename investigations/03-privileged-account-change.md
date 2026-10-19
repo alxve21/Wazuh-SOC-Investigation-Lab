@@ -37,6 +37,6 @@ A group-change event proves that a membership change was recorded; it does not b
 | Actor account and logon ID | Not visible in the overview |
 | Added member account/SID | Not visible in the overview |
 | Target group name/SID | Group-change descriptions are visible; exact event fields are not verified |
-| Wazuh rule ID/level | Result overview only; event-level rule details are not recorded here |
+| Wazuh rule ID/level | Rule IDs 60154 and 60170 are visible; the overview does not show expanded event fields |
 | Authorization check and membership state | Not verified |
 | Analyst disposition | Inconclusive; expanded event and authorization review are still needed |
