@@ -1,6 +1,6 @@
 # Investigation 06 — Benign Change False-Positive Triage
 
-**Status:** Evidence pending. The reviewed Syscheck material does not establish that a file change came from an authorized software update, so no benign disposition is assigned.
+**Status:** Inconclusive. The reviewed Syscheck material does not establish that a file change came from an authorized software update, so no benign disposition is assigned.
 
 ## Scenario
 
@@ -25,17 +25,3 @@ Disposition may be benign only when the file change is attributable to the expec
 ## Evidence status
 
 The reviewed Syscheck results and file-change detail do not provide the signer, file version, updater process, update log, or approved change reference needed to attribute a benign software update. The available detail also includes local account information and is not included in the public evidence set. Keep the disposition inconclusive until attribution is verified.
-
-## Observed evidence to add
-
-| Field | Observed value |
-|---|---|
-| Alert time and timezone | Pending |
-| Windows agent/hostname | Pending |
-| File path and change type | Not included in public evidence; verify a case-matching event |
-| Before/after hashes and version | Pending |
-| Signer and verification result | Pending |
-| Updater/process and update log | Pending |
-| Approved change reference/window | Pending |
-| Wazuh rule ID/level | Pending |
-| Analyst disposition and rationale | Inconclusive; benign updater attribution is not verified |
