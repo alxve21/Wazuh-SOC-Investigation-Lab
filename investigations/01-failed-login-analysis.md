@@ -13,7 +13,7 @@ Run only on the isolated, host-only lab network. Use accounts created solely for
 ## Detection and investigation
 
 - Primary Windows Security event: **4625** — failed logon.
-- Wazuh search starting point: `data.win.system.eventID:4625`.
+- Wazuh search starting point: data.win.system.eventID:4625.
 - Review the time range around the controlled exercise. Raw events may be present even when no custom password-spray correlation rule is configured; do not claim that an alert fired unless the dashboard shows it.
 - Record the timestamp, endpoint/agent, target account, source IP, logon type, workstation name, failure status/substatus, and Wazuh rule ID/level when available.
 - Group events by source IP and short time window. Count distinct targeted accounts and compare the pattern with the known test actions.
@@ -27,17 +27,12 @@ Treat the pattern as a suspected password spray only when the observed events sh
 
 ![Wazuh search results for Windows failed-logon events](../screenshots/01-failed-logon-search.png)
 
-*The overview shows seven results for `data.win.system.eventID:4625` and rule ID 60122 in the selected broad range. It does not show a compact exercise window, source-to-account aggregation, or enough event detail to establish a password spray. The case remains unconfirmed.*
+*The overview shows seven results for the 4625 search and rule ID 60122 in the selected broad range. It does not show a compact exercise window, source-to-account aggregation, or enough event detail to establish a password spray. No 4624 result is correlated to the same source, account, and time window in the reviewed evidence. The case remains unconfirmed.*
 
 ## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Exercise time range and timezone | Broad selected search range; a compact exercise window is not established |
-| Windows agent/hostname | Not established by the published overview |
-| Source IP | Not established by the published overview |
-| Distinct targeted accounts | Not established by the published overview |
-| Logon type and failure status | Not established by the published overview |
-| Wazuh rule ID/level, if any | Rule ID 60122 is visible; level is not recorded here |
-| Related 4624 success found? | No same-source/account/time correlation is established |
+| Exercise time range | Broad selected search range; a compact exercise window is not established |
+| Visible Wazuh rule | Rule ID 60122; level is not recorded in the overview |
 | Analyst disposition | Inconclusive; the overview does not meet the password-spray criteria |
