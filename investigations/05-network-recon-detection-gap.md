@@ -1,6 +1,6 @@
 # Investigation 05 — Network Reconnaissance Visibility Review
 
-**Status:** Evidence pending. This is a standalone, controlled visibility review; do not infer a detection from expected behavior.
+**Status:** A broad network-event search overview is available, but the documented single-host connection-probe exercise is not verified by it.
 
 ## Scenario
 
@@ -21,19 +21,21 @@ Only perform a small, approved test against one host in an isolated lab network,
 
 State whether the expected telemetry was present, absent, or inconclusive. Separate raw event visibility from alerting: an event in Wazuh does not by itself establish malicious intent, and no alert does not establish that traffic was absent.
 
-## Observed evidence to add
+## Evidence currently available (broad search only)
+
+![Wazuh Event ID 3 network-event search results](../screenshots/05-network-event-search.png)
+
+*The broad `data.win.system.eventID:3` search shows 70 results in the selected range, with SMB admin-share-related alert descriptions visible. It does not document the bounded connection probe in this case or show the source, destination, and port for that exercise. The specific scenario remains unverified.*
+
+## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Exercise time and timezone | Pending |
-| Authorized target host | Pending |
-| Source host | Pending |
-| Event provider/ID and telemetry source | Pending |
-| Destination and port(s) observed | Pending |
-| Wazuh agent and rule/query | Pending |
-| Visibility result and limitations | Pending |
-| Analyst disposition | Pending |
-
-## Screenshots
-
-Add the relevant Wazuh overview and event (if available) under ../screenshots/ using the case filenames in ../screenshots/README.md. Remove secrets and unrelated data.
+| Exercise time and timezone | No bounded exercise window is established |
+| Authorized target host | Not established by the overview |
+| Source host | Not established by the overview |
+| Event provider/ID and telemetry source | Event ID 3 search is visible; provider and exercise event are not verified |
+| Destination and port(s) observed | Not established by the overview |
+| Wazuh agent and rule/query | Search query is visible; event-level agent and rule context are not recorded here |
+| Visibility result and limitations | Broad search returned 70 results; it does not validate the documented probe |
+| Analyst disposition | Inconclusive for the probe scenario |
