@@ -1,6 +1,6 @@
 # Investigation 04 — Sensitive File Integrity Change
 
-**Status:** Evidence pending. This page is a standalone FIM scenario. Add observed paths, hashes, and disposition only after reviewing the actual Wazuh event.
+**Status:** Preliminary Syscheck overview evidence is available, but this case's dedicated marker-file exercise is not verified. The published search shows four Syscheck results without path-level context.
 
 ## Scenario
 
@@ -8,12 +8,12 @@ A monitored lab configuration file is modified outside its expected maintenance 
 
 ## Lab boundary and safe setup
 
-Configure Wazuh FIM to monitor a dedicated test directory named WazuhLab-FIM. Change only a harmless marker file in that directory. Do not alter operating-system, security, or business-critical files. Preserve the before/after contents and revert the marker after capturing evidence.
+Configure Wazuh FIM to monitor a dedicated test directory named WazuhLab-FIM. Change only a harmless marker file in that directory. Do not alter operating-system, security, or business-critical files. Preserve the before/after contents and revert the marker after recording the event.
 
 ## Detection and investigation
 
-- Primary telemetry: Wazuh File Integrity Monitoring (syscheck) alert for a file added, modified, or deleted.
-- Search the Wazuh alert data for syscheck events and narrow to the observed file path and exercise time; field names can vary by Wazuh version.
+- Primary telemetry: Wazuh File Integrity Monitoring (Syscheck) alert for a file added, modified, or deleted.
+- Search the Wazuh alert data for Syscheck events and narrow to the observed file path and exercise time; field names can vary by Wazuh version.
 - Record the agent, full path, event type, timestamp, user/process context if available, and before/after hashes shown in the event.
 - Compare the change with the controlled test action and any approved maintenance record. FIM identifies a file change; it does not identify intent by itself.
 
@@ -21,19 +21,21 @@ Configure Wazuh FIM to monitor a dedicated test directory named WazuhLab-FIM. Ch
 
 Treat an unexplained change to a sensitive monitored file as suspicious until the owner and expected content are verified. A controlled marker-file modification should be documented as a successful FIM validation only if the expected event and path appear in Wazuh. If the event is absent, record a collection or configuration gap rather than claiming detection.
 
-## Observed evidence to add
+## Evidence currently available (overview only)
+
+![Wazuh Syscheck search results](../screenshots/04-syscheck-search.png)
+
+*The `rule.groups:syscheck` search shows four Syscheck results, including file-change descriptions. This overview does not show the monitored path or verify the dedicated `WazuhLab-FIM` marker-file scenario. No path-level or benign/suspicious disposition is claimed.*
+
+## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Exercise time and timezone | Pending |
-| Windows agent/hostname | Pending |
-| Monitored file path | Pending |
-| FIM event type | Pending |
-| Before/after hash values | Pending |
-| Related user/process, if available | Pending |
-| Wazuh rule ID/level | Pending |
-| Analyst disposition | Pending |
-
-## Screenshots
-
-Add an overview and one expanded syscheck event under ../screenshots/ using the case filenames in ../screenshots/README.md. Exclude unrelated files and secrets.
+| Exercise time and timezone | Not established by the overview |
+| Windows agent/hostname | Not established by the overview |
+| Monitored file path | Not shown in the published overview |
+| FIM event type | File-change alert descriptions appear; specific case event not verified |
+| Before/after hash values | Not shown in the published overview |
+| Related user/process, if available | Not shown in the published overview |
+| Wazuh rule ID/level | Search overview includes rule IDs 550, 553, and 554; event-level context not reviewed here |
+| Analyst disposition | Inconclusive; the dedicated marker-file event is not verified |
