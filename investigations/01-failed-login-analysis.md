@@ -1,6 +1,6 @@
 # Investigation 01 — Controlled Password Spray
 
-**Status:** Evidence pending. This page documents the lab scenario and investigation method. Add the observed event details and Wazuh screenshots after running the exercise; no timestamps, IPs, alert IDs, or outcomes are assumed here.
+**Status:** The password-spray hypothesis is unverified. The published overview shows seven 4625 search results in a broad selected range, but does not establish the source/account/time pattern required to confirm a spray.
 
 ## Scenario
 
@@ -23,19 +23,21 @@ Run only on the isolated, host-only lab network. Use accounts created solely for
 
 Treat the pattern as a suspected password spray only when the observed events show the same source making failures against multiple accounts in a compact time window and the pattern is not explained by the documented test or approved activity. Escalate the assessment if evidence shows a successful logon, lockout, or additional suspicious behavior. Otherwise, document the result as an attempted authentication pattern and state the detection limits.
 
-## Observed evidence to add
+## Evidence currently available
+
+![Wazuh search results for Windows failed-logon events](../screenshots/01-failed-logon-search.png)
+
+*The overview shows seven results for `data.win.system.eventID:4625` and rule ID 60122 in the selected broad range. It does not show a compact exercise window, source-to-account aggregation, or enough event detail to establish a password spray. The case remains unconfirmed.*
+
+## Observed evidence
 
 | Field | Observed value |
 |---|---|
-| Exercise time range and timezone | Pending |
-| Windows agent/hostname | Pending |
-| Source IP | Pending |
-| Distinct targeted accounts | Pending |
-| Logon type and failure status | Pending |
-| Wazuh rule ID/level, if any | Pending |
-| Related 4624 success found? | Pending |
-| Analyst disposition | Pending |
-
-## Screenshots
-
-Add the overview and one expanded event under `../screenshots/` using the names listed in `../screenshots/README.md`. Keep usernames and IPs consistent with the lab, and do not include credentials in screenshots.
+| Exercise time range and timezone | Broad selected search range; a compact exercise window is not established |
+| Windows agent/hostname | Not established by the published overview |
+| Source IP | Not established by the published overview |
+| Distinct targeted accounts | Not established by the published overview |
+| Logon type and failure status | Not established by the published overview |
+| Wazuh rule ID/level, if any | Rule ID 60122 is visible; level is not recorded here |
+| Related 4624 success found? | No same-source/account/time correlation is established |
+| Analyst disposition | Inconclusive; the overview does not meet the password-spray criteria |
