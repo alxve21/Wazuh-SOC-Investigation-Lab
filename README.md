@@ -37,18 +37,22 @@ Hands-on SOC investigation lab focused on **Windows security telemetry, alert tr
 | **Kali Linux** | Controlled testing system |
 | **VirtualBox** | Lab virtualization |
 
-### Architecture
+## 🏗️ Architecture
 
 ```mermaid
 flowchart LR
-    K[Kali Linux] --> W[Windows Endpoint]
-    W --> S[Sysmon]
-    W --> E[Windows Security Logs]
-    S --> A[Wazuh Agent]
+    K["Kali Linux"] --> W["Windows Endpoint"]
+    W --> S["Sysmon"]
+    W --> E["Windows Security Logs"]
+    S --> A["Wazuh Agent"]
     E --> A
-    A --> M[Wazuh Manager]
-    M --> D[Wazuh Dashboard]
+    A --> M["Wazuh Manager"]
+    M --> D["Wazuh Dashboard"]
+```
 
+---
+
+## 🔎 Investigations
 🔎 Investigations
 Scenario	Evidence
 Failed login analysis	Event ID 4625
