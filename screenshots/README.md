@@ -1,29 +1,17 @@
 # Wazuh Investigation Screenshots
 
-No screenshots are included yet. Add only screenshots from the actual Wazuh lab after reviewing each case; these placeholders describe suggested filenames and are not evidence.
+No screenshots are included yet. Add screenshots from the actual Wazuh lab after reviewing each case. These are suggested filenames, not evidence.
 
 ## Suggested filenames
 
-| Case | Overview | Event/details |
-|---|---|---|
-| 01 — Failed login |  |
-| 02 — PowerShell |  |
-| 03 — Privileged change |  |
-| 04 — FIM change |  |
-| 05 — Network visibility |  |
-| 06 — Benign update triage |  |
-| 07 — Scheduled task |  |
+Use one overview and one event/detail screenshot per case:
 
-Use these name pairs (overview and event):
+- Case 01: 01-failed-login-overview.png, 01-failed-login-event.png
+- Case 02: 02-powershell-overview.png, 02-powershell-event.png
+- Case 03: 03-privileged-change-overview.png, 03-privileged-change-event.png
+- Case 04: 04-fim-change-overview.png, 04-fim-change-event.png
+- Case 05: 05-network-visibility-overview.png, 05-network-visibility-event.png
+- Case 06: 06-benign-update-overview.png, 06-benign-update-event.png
+- Case 07: 07-scheduled-task-overview.png, 07-scheduled-task-event.png
 
-- 01: 
-- 02: 
-- 03: 
-- 04: 
-- 05: 
-- 06: 
-- 07: 
-
-Save two PNGs per case using the pattern , replacing the case label with the matching number and short name, and using  for .
-
-Before adding an image, check that it shows the correct case and enough Wazuh context to support the write-up. Redact credentials, tokens, and unrelated personal information. If no event exists, document the visibility gap in the investigation instead of creating a screenshot that implies detection.
+Before adding an image, confirm it shows the correct case and enough Wazuh context to support the write-up. Redact credentials, tokens, and unrelated personal information. If no event exists, document the visibility gap in the investigation rather than adding a screenshot that implies detection.
