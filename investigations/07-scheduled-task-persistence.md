@@ -22,15 +22,6 @@ Use an existing authorized event or create only a temporary, harmless task in a 
 
 Close as authorized only when the task configuration and creator match an approved change. Otherwise document suspicious or inconclusive elements and follow the lab escalation process. This case is independent of the other investigations.
 
-## Observed evidence
+## Evidence status
 
-| Field | Observed value |
-|---|---|
-| Event time and timezone | No matching event was reported in the reviewed search; the interval and timezone are not available |
-| Windows agent/hostname | Pending |
-| Event ID/provider | No matching 4698/4702 event was reported; provider details are not available |
-| Task name and path | Not available |
-| Creator and task principal | Not available |
-| Trigger and action | Not available |
-| Wazuh rule ID/level | Not available |
-| Change authorization and disposition | Inconclusive visibility gap; audit, collection, and retention coverage need verification |
+The reviewed search found no matching 4698/4702 event. Its interval and timezone are unavailable, and audit, collection, and retention coverage have not been verified. The result therefore indicates an inconclusive visibility gap; it does not establish that no task was created.
