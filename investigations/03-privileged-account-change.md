@@ -32,5 +32,5 @@ A group-change event proves that a membership change was recorded; it does not b
 
 | Field | Observed value |
 |---|---|
-| Visible Wazuh rules | Rule IDs 60154 and 60170 appear in the overview; expanded event fields are not shown |
-| Analyst disposition | Inconclusive; expanded event and authorization review are still needed |
+| Visible Wazuh rules | Rule IDs 60154 and 60170 appear in the overview |
+| Analyst disposition | Inconclusive |
