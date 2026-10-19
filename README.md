@@ -2,7 +2,7 @@
 
 A training portfolio of independent Windows/Sysmon investigations using Wazuh. The seven cases below are separate scenarios; only the capstone presents a hypothetical correlated sequence.
 
-> **Training disclaimer:** Authorized, controlled lab and portfolio work only. This is not production SOC employment. Investigation observations and screenshots remain pending until captured from the actual lab; no evidence or exact event values are invented.
+> **Training disclaimer:** Authorized, controlled lab and portfolio work only. This is not production SOC employment. Four genuine Wazuh dashboard overview captures are included under [screenshots/](screenshots/). They show preliminary search results, not full verification of every scenario. Each case page states what its evidence does and does not establish. No malicious outcome or correlated incident is claimed without supporting event details.
 
 ## Lab components
 
@@ -40,11 +40,11 @@ Wazuh-SOC-Investigation-Lab/
 ├── README.md
 ├── investigations/ (seven independent cases)
 ├── case-studies/correlated-attack-chain.md
-├── screenshots/README.md
+├── screenshots/README.md and four overview captures
 ├── incident-timeline.md
 └── lessons-learned.md
 ```
 
 ## Evidence and lab safety
 
-Screenshots belong under [screenshots/](screenshots/) and must come from the actual lab. See the [capture checklist](screenshots/README.md). Redact credentials, tokens, and unrelated personal data. Use only isolated systems and accounts authorized for testing; keep exercises scoped and reversible.
+Screenshots belong under [screenshots/](screenshots/) and must come from the actual lab. See the [capture guide](screenshots/README.md) for the four published overview captures and their limitations. Redact credentials, tokens, and unrelated personal data before publishing further detail. Use only isolated systems and accounts authorized for testing; keep exercises scoped and reversible.
