@@ -1,8 +1,8 @@
 # Wazuh SOC Investigation Lab
 
-A training portfolio of independent Windows/Sysmon investigations using Wazuh. The seven cases below are separate scenarios; only the capstone presents a hypothetical correlated sequence.
+A training portfolio of four independent Windows/Sysmon investigations using Wazuh. The published case pages retain their original lab IDs (01, 03, 04, and 05); the capstone remains a hypothetical correlated sequence.
 
-> **Training disclaimer:** Authorized, controlled lab and portfolio work only. This is not production SOC employment. Four genuine Wazuh dashboard overview captures are included under [screenshots/](screenshots/). They show preliminary search results, not full verification of every scenario. Each case page states what its evidence does and does not establish. No malicious outcome or correlated incident is claimed without supporting event details.
+> **Training disclaimer:** Authorized, controlled lab and portfolio work only. This is not production SOC employment. Four genuine Wazuh dashboard overview captures are included under [screenshots/](screenshots/). They show preliminary search results, not full verification of every scenario. Each published case page states what its evidence does and does not establish. No malicious outcome or correlated incident is claimed without supporting event details.
 
 ## Lab components
 
@@ -18,12 +18,9 @@ A training portfolio of independent Windows/Sysmon investigations using Wazuh. T
 | Case | Focus |
 |---|---|
 | [01 — Failed login analysis](investigations/01-failed-login-analysis.md) | Authentication failure patterns |
-| [02 — Suspicious PowerShell](investigations/02-suspicious-powershell.md) | Process lineage and command context |
 | [03 — Privileged account change](investigations/03-privileged-account-change.md) | Local group membership changes |
 | [04 — File integrity monitoring](investigations/04-file-integrity-monitoring.md) | Monitored file changes |
 | [05 — Network reconnaissance visibility](investigations/05-network-recon-detection-gap.md) | Telemetry coverage and detection limits |
-| [06 — False-positive triage](investigations/06-false-positive-triage.md) | Attribution of an expected file update |
-| [07 — Scheduled-task review](investigations/07-scheduled-task-persistence.md) | Task creation/change review |
 
 ## Correlated capstone
 
@@ -35,15 +32,11 @@ Validate source and time window; examine event, host, account, and process conte
 
 ## Repository map
 
-```text
-Wazuh-SOC-Investigation-Lab/
-├── README.md
-├── investigations/ (seven independent cases)
-├── case-studies/correlated-attack-chain.md
-├── screenshots/README.md and four overview captures
-├── incident-timeline.md
-└── lessons-learned.md
-```
+- Four independent investigation pages: Cases 01, 03, 04, and 05
+- [Correlated capstone](case-studies/correlated-attack-chain.md)
+- [Screenshot guide and four overview captures](screenshots/README.md)
+- [Investigation register](incident-timeline.md)
+- [Lessons learned](lessons-learned.md)
 
 ## Evidence and lab safety
 
