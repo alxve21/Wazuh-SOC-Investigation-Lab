@@ -1,76 +1,138 @@
-# Wazuh SOC Investigation Lab
+# 🛡️ Wazuh SOC Investigation Lab
 
-## Objective
+<p align="left">
+  <img src="https://img.shields.io/badge/SIEM-Wazuh-005571?style=flat-square">
+  <img src="https://img.shields.io/badge/Telemetry-Sysmon-5C2D91?style=flat-square">
+  <img src="https://img.shields.io/badge/Endpoint-Windows-0078D6?style=flat-square">
+  <img src="https://img.shields.io/badge/Framework-MITRE%20ATT%26CK-red?style=flat-square">
+</p>
 
-The objective of this project was to build a small SOC investigation lab using Wazuh, a Windows endpoint, and Sysmon telemetry.
+Hands-on SOC investigation lab focused on **Windows security telemetry, alert triage, event correlation, and incident-response analysis** using Wazuh and Sysmon.
 
-The goal was not only to generate security events, but to investigate them from an analyst perspective, correlate related activity, identify suspicious patterns, and document incident-response decisions.
+> This is an authorized lab environment created for practical SOC training and portfolio demonstration.
 
-## Lab Environment
+---
 
-- Wazuh
-- Windows Endpoint
-- Wazuh Agent
-- Sysmon
-- Kali Linux
-- VirtualBox
+## 🎯 What This Project Demonstrates
 
-## Scenarios Investigated
-
-- Failed login attempts
-- Successful login correlation
-- Suspicious PowerShell execution
-- Local user creation
-- Administrator group modification
+- Wazuh SIEM monitoring
+- Windows Event Log analysis
+- Sysmon process investigation
+- Authentication analysis
+- Alert triage and event correlation
+- Account and privilege-change investigation
 - File Integrity Monitoring
-- Basic reconnaissance observation
-- Multi-event correlation
+- Incident-response decision making
+- MITRE ATT&CK mapping
 
-## Investigation Approach
+---
 
-The investigation focused on correlating authentication, process execution, account modification, and file integrity events rather than treating each alert independently.
+## 🧪 Lab Environment
 
-Key investigation areas included:
+| Component | Role |
+|---|---|
+| **Wazuh** | SIEM / alert investigation |
+| **Windows Endpoint** | Monitored host |
+| **Sysmon** | Process and endpoint telemetry |
+| **Kali Linux** | Controlled testing system |
+| **VirtualBox** | Lab virtualization |
 
-- User and host context
-- Event timestamps
-- Authentication activity
-- PowerShell command execution
-- Parent/child process relationships
-- Account creation
-- Privilege changes
-- File modification events
-- Incident severity and escalation decisions
+### Architecture
 
-## Incident Response Workflow
+```mermaid
+flowchart LR
+    K[Kali Linux] --> W[Windows Endpoint]
+    W --> S[Sysmon]
+    W --> E[Windows Security Logs]
+    S --> A[Wazuh Agent]
+    E --> A
+    A --> M[Wazuh Manager]
+    M --> D[Wazuh Dashboard]
 
-The following workflow was used during investigations:
+🔎 Investigations
+Scenario	Evidence
+Failed login analysis	Event ID 4625
+Successful login correlation	Event ID 4624
+Suspicious PowerShell execution	Sysmon Event ID 1
+New local user creation	Event ID 4720
+Administrator group modification	Event ID 4732
+File modification	Wazuh FIM
+Multi-event correlation	Combined telemetry
 
-1. Verify the alert
-2. Correlate related activity
-3. Determine the affected user and host
-4. Assess severity
-5. Preserve relevant evidence
-6. Recommend containment
-7. Escalate when necessary
-8. Document findings
 
-## Key Windows Events
+🚨 Example Investigation Chain
+Failed Logins
+      ↓
+Successful Login
+      ↓
+PowerShell Execution
+      ↓
+New User Created
+      ↓
+User Added to Administrators
+      ↓
+File Modification
 
-- Event ID 4625 — Failed logon
-- Event ID 4624 — Successful logon
-- Event ID 4720 — New user account created
-- Event ID 4732 — User added to a local group
-- Sysmon Event ID 1 — Process creation
+The important part of the investigation was not treating each event separately.
 
-## Example Attack Chain
+Events were correlated using:
 
-A simulated incident was correlated across multiple security events:
+Timestamp • User • Host • Source • Process • Command Line • Follow-on Activity
 
-```text
-Failed login attempts
-→ Successful login
-→ Suspicious PowerShell execution
-→ New local user created
-→ User added to Administrators
-→ File modification activity
+📄 [View Incident Timeline](./incident-timeline.md)
+⚔️ MITRE ATT&CK Mapping
+Technique	ID
+Brute Force	T1110
+PowerShell	T1059.001
+Create Account	T1136.001
+Account Manipulation	T1098
+Valid Accounts	T1078
+
+
+🧠 Analyst Approach
+Validate Alert
+      ↓
+Check Context
+      ↓
+Correlate Events
+      ↓
+Determine Scope
+      ↓
+Assess Severity
+      ↓
+Preserve Evidence
+      ↓
+Contain / Escalate
+      ↓
+Document Findings
+
+A major lesson from this lab was learning to avoid unsupported conclusions.
+
+For example:
+- A successful login does not automatically confirm compromise.
+- PowerShell is not automatically malicious.
+- Account creation requires context.
+- Multiple related events provide stronger evidence than a single alert.
+🛠️ Skills Demonstrated
+Wazuh Sysmon Windows Event Logs PowerShell Analysis Alert Triage Event Correlation Incident Response MITRE ATT&CK File Integrity Monitoring
+📂 Repository
+Wazuh-SOC-Investigation-Lab/
+├── README.md
+├── incident-timeline.md
+├── lessons-learned.md
+└── screenshots/
+
+📘 [Lessons Learned](./lessons-learned.md)
+📸 Evidence
+The screenshots folder will contain evidence from the actual lab, including:
+- Wazuh agent activity
+- Failed authentication events
+- Sysmon PowerShell telemetry
+- User creation
+- Administrator group modification
+- File Integrity Monitoring events
+💡 Key Takeaway
+SOC analysis is not about reacting to one alert — it is about correlating evidence and building a defensible investigation.
+
+🔐 Authorized Lab Only
+All activity in this repository was performed in a controlled environment for cybersecurity learning and defensive security practice.
