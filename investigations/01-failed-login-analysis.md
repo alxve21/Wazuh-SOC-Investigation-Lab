@@ -33,6 +33,5 @@ Treat the pattern as a suspected password spray only when the observed events sh
 
 | Field | Observed value |
 |---|---|
-| Exercise time range | Broad selected search range; a compact exercise window is not established |
-| Visible Wazuh rule | Rule ID 60122; level is not recorded in the overview |
-| Analyst disposition | Inconclusive; the overview does not meet the password-spray criteria |
+| Visible Wazuh rule | Rule ID 60122 is shown in the overview |
+| Analyst disposition | Inconclusive |
