@@ -1,6 +1,6 @@
 # Investigation 06 — Benign Change False-Positive Triage
 
-**Status:** Evidence pending. This is an independent triage exercise; do not mark an event benign until it is attributable to an authorized change.
+**Status:** Evidence pending. The reviewed Syscheck material does not establish that a file change came from an authorized software update, so no benign disposition is assigned.
 
 ## Scenario
 
@@ -22,20 +22,20 @@ Use an existing authorized update event or a disposable lab application and appr
 
 Disposition may be benign only when the file change is attributable to the expected authorized updater and matches the approved version/change record. Otherwise keep it suspicious or inconclusive and escalate according to the lab process. This case is separate from Investigation 04's unauthorized-change scenario.
 
+## Evidence status
+
+The reviewed Syscheck results and file-change detail do not provide the signer, file version, updater process, update log, or approved change reference needed to attribute a benign software update. The available detail also includes local account information and is not included in the public evidence set. Keep the disposition inconclusive until attribution is verified.
+
 ## Observed evidence to add
 
 | Field | Observed value |
 |---|---|
 | Alert time and timezone | Pending |
 | Windows agent/hostname | Pending |
-| File path and change type | Pending |
+| File path and change type | Not included in public evidence; verify a case-matching event |
 | Before/after hashes and version | Pending |
 | Signer and verification result | Pending |
 | Updater/process and update log | Pending |
 | Approved change reference/window | Pending |
 | Wazuh rule ID/level | Pending |
-| Analyst disposition and rationale | Pending |
-
-## Screenshots
-
-Add the Wazuh FIM alert and relevant verification view under ../screenshots/ using ../screenshots/README.md. Redact secrets and unrelated data.
+| Analyst disposition and rationale | Inconclusive; benign updater attribution is not verified |
