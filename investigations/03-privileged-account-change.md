@@ -13,7 +13,7 @@ Use only a disposable Windows VM and an existing test account. Perform a single 
 ## Detection and investigation
 
 - Primary Windows Security event: **4732** — a member was added to a security-enabled local group. For domain global or universal groups, verify whether **4728** or **4756** applies instead.
-- Wazuh search starting point: `data.win.system.eventID:4732`.
+- Wazuh search starting point: data.win.system.eventID:4732.
 - Record the event time, computer/agent, subject account and logon ID, member account/SID, target group name/SID, and Wazuh rule ID/level.
 - Validate the group and member using the event details and the endpoint's current local group membership. Confirm the actor's session and whether the change matches an approved administrative task or maintenance record.
 - Search for nearby related events only within this case's time window. Do not add account creation, failed logons, or unrelated process activity to the narrative without evidence.
@@ -32,11 +32,5 @@ A group-change event proves that a membership change was recorded; it does not b
 
 | Field | Observed value |
 |---|---|
-| Event time and timezone | Not established from the overview |
-| Windows agent/hostname | Not established from the overview |
-| Actor account and logon ID | Not visible in the overview |
-| Added member account/SID | Not visible in the overview |
-| Target group name/SID | Group-change descriptions are visible; exact event fields are not verified |
-| Wazuh rule ID/level | Rule IDs 60154 and 60170 are visible; the overview does not show expanded event fields |
-| Authorization check and membership state | Not verified |
+| Visible Wazuh rules | Rule IDs 60154 and 60170 appear in the overview; expanded event fields are not shown |
 | Analyst disposition | Inconclusive; expanded event and authorization review are still needed |
