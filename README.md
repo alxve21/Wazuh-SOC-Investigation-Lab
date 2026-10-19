@@ -1,68 +1,50 @@
-# 🛡️ Wazuh SOC Investigation Lab
+# Wazuh SOC Investigation Lab
 
-Hands-on SOC investigation scenarios using Wazuh and Windows security telemetry. Each investigation is independent and should be supported by evidence from the actual lab before any findings are recorded.
+A training portfolio of independent Windows/Sysmon investigations using Wazuh. The seven cases below are separate scenarios; only the capstone presents a hypothetical correlated sequence.
 
-> **Evidence status:** Case write-ups are investigation plans. Observed values and screenshots are pending. No event outcomes or case conclusions are asserted until verified in Wazuh.
+> **Training disclaimer:** Authorized, controlled lab and portfolio work only. This is not production SOC employment. Investigation observations and screenshots remain pending until captured from the actual lab; no evidence or exact event values are invented.
 
-## What this lab demonstrates
+## Lab components
 
-- Wazuh alert review and Windows event investigation
-- Authentication, process, account, group, file-integrity, network-visibility, and scheduled-task triage
-- Evidence-based reasoning, scope assessment, and careful disposition
-- MITRE ATT&CK mapping where supported by observed behavior
-
-## Lab environment
-
-| Component | Role |
+| Component | Role in the lab |
 |---|---|
-| Wazuh | SIEM and alert investigation |
-| Windows endpoint | Monitored host |
-| Sysmon | Process and endpoint telemetry, when configured |
-| Kali Linux | Controlled testing system, when used in the authorized lab |
-| VirtualBox | Lab virtualization |
+| Wazuh | Alert and event review |
+| Windows endpoint | Monitored security and system telemetry |
+| Sysmon | Process telemetry when configured |
+| Kali Linux / VirtualBox | Isolated test environment when used |
 
-## Investigations
+## Independent investigations
 
-These are separate cases. Do not correlate them into one attack chain unless real evidence independently supports that relationship.
+| Case | Focus |
+|---|---|
+| [01 — Failed login analysis](investigations/01-failed-login-analysis.md) | Authentication failure patterns |
+| [02 — Suspicious PowerShell](investigations/02-suspicious-powershell.md) | Process lineage and command context |
+| [03 — Privileged account change](investigations/03-privileged-account-change.md) | Local group membership changes |
+| [04 — File integrity monitoring](investigations/04-file-integrity-monitoring.md) | Monitored file changes |
+| [05 — Network reconnaissance visibility](investigations/05-network-recon-detection-gap.md) | Telemetry coverage and detection limits |
+| [06 — False-positive triage](investigations/06-false-positive-triage.md) | Attribution of an expected file update |
+| [07 — Scheduled-task review](investigations/07-scheduled-task-persistence.md) | Task creation/change review |
 
-| Case | Investigation | Primary focus |
-|---|---|---|
-| 01 | [Failed login analysis](investigations/01-failed-login-analysis.md) | Repeated authentication failures and context |
-| 02 | [Suspicious PowerShell](investigations/02-suspicious-powershell.md) | Process lineage and command context |
-| 03 | [Privileged account change](investigations/03-privileged-account-change.md) | Local group or privilege modification |
-| 04 | [File integrity monitoring](investigations/04-file-integrity-monitoring.md) | Controlled monitored-file change |
-| 05 | [Network reconnaissance visibility](investigations/05-network-recon-detection-gap.md) | Telemetry coverage and limitations |
-| 06 | [False-positive triage](investigations/06-false-positive-triage.md) | Attribution of an authorized file update |
-| 07 | [Scheduled task review](investigations/07-scheduled-task-persistence.md) | Task creation/change review |
+## Correlated capstone
 
-## Investigation approach
+[Correlated attack-chain case study](case-studies/correlated-attack-chain.md) is a hypothesis to validate from evidence, not a report of observed compromise. It distinguishes verified events from possible stages and treats missing telemetry as a visibility gap.
 
-Validate the alert, identify its source and collection limits, examine relevant context, preserve the observed evidence, and document an evidence-based disposition. A single event does not prove malicious intent. Missing telemetry is recorded as a visibility gap, not as proof that activity did not occur.
+## Analyst workflow
 
-## Repository structure
+Validate source and time window; examine event, host, account, and process context; preserve observations; assess collection limits; then document a qualified disposition. A single event does not prove intent. Map MITRE ATT&CK only when the observed behavior supports it.
 
+## Repository map
 
-```
+```text
 Wazuh-SOC-Investigation-Lab/
 ├── README.md
+├── investigations/ (seven independent cases)
+├── case-studies/correlated-attack-chain.md
+├── screenshots/README.md
 ├── incident-timeline.md
-├── lessons-learned.md
-├── investigations/
-│   ├── 01-failed-login-analysis.md
-│   ├── 02-suspicious-powershell.md
-│   ├── 03-privileged-account-change.md
-│   ├── 04-file-integrity-monitoring.md
-│   ├── 05-network-recon-detection-gap.md
-│   ├── 06-false-positive-triage.md
-│   └── 07-scheduled-task-persistence.md
-└── screenshots/
-    └── README.md
+└── lessons-learned.md
 ```
 
-## Evidence and screenshots
+## Evidence and lab safety
 
-Add screenshots from the actual Wazuh lab under [screenshots/](screenshots/), following its README. Redact credentials, tokens, private addresses where appropriate, and unrelated personal data. Leave evidence fields pending until verified.
-
-## Authorized lab use
-
-Use only systems and accounts you are authorized to test. Keep any active exercise isolated, scoped, and reversible.
+Screenshots belong under [screenshots/](screenshots/) and must come from the actual lab. See the [capture checklist](screenshots/README.md). Redact credentials, tokens, and unrelated personal data. Use only isolated systems and accounts authorized for testing; keep exercises scoped and reversible.
