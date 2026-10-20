@@ -1,16 +1,17 @@
 # Wazuh Investigation Register
 
-This register summarizes evidence status for four independent Wazuh investigations. It is not a shared incident timeline. The cases are not linked to one another unless separately verified evidence supports correlation. Case IDs retain their original lab numbering.
+These are seven separate investigations, not a shared incident timeline. The four published dashboard captures show preliminary searches; they do not verify each scenario or connect the cases.
 
-**Current evidence status:** Four published dashboard overviews show searches for failed logons, group-change alerts, Syscheck alerts, and network events. They are preliminary search views and do not complete the scenario-specific validation. No shared incident sequence is established.
-
-| Case | Investigation | Evidence status | Case record |
+| Case | What the reviewed material shows | Assessment | Record |
 |---|---|---|---|
-| 01 | Failed login analysis | Seven 4625 results visible in a broad selected range; password-spray pattern not verified | [Investigation 01](investigations/01-failed-login-analysis.md) |
-| 03 | Privileged account change | Two 4732 search results visible; actor, member, resulting membership, and authorization unverified | [Investigation 03](investigations/03-privileged-account-change.md) |
-| 04 | File integrity monitoring | Four Syscheck results visible; dedicated marker path and controlled exercise unverified | [Investigation 04](investigations/04-file-integrity-monitoring.md) |
-| 05 | Network visibility review | Seventy Event ID 3 results visible; documented single-host probe unverified | [Investigation 05](investigations/05-network-recon-detection-gap.md) |
+| 01 | Seven Windows 4625 results in a broad selected range. | The source/account pattern needed to identify a password spray is not established. | [Failed login analysis](investigations/01-failed-login-analysis.md) |
+| 02 | The available process-search capture shows command-prompt alert descriptions. | Office-launched PowerShell and process lineage are not shown. | [Office-launched PowerShell](investigations/02-suspicious-powershell.md) |
+| 03 | Two Windows 4732 results appear in the overview. | Actor, member, resulting membership, and authorization are unverified. | [Privileged group change](investigations/03-privileged-account-change.md) |
+| 04 | Four Syscheck results appear in the overview. | The monitored path and dedicated marker-file exercise are not verified. | [File integrity monitoring](investigations/04-file-integrity-monitoring.md) |
+| 05 | Seventy Event ID 3 results appear; SMB admin-share descriptions are visible. | The documented single-host probe and its source/destination details are not verified. | [Network visibility review](investigations/05-network-recon-detection-gap.md) |
+| 06 | Reviewed Syscheck details lack the updater and change information needed for attribution. | Inconclusive; the change cannot be called benign from the available detail. | [False-positive triage](investigations/06-false-positive-triage.md) |
+| 07 | No matching 4698/4702 result was found in the reviewed search. | The search window and audit/collection coverage are unknown. | [Scheduled-task review](investigations/07-scheduled-task-persistence.md) |
 
-## Evidence entry guidance
+## Updating this register
 
-When event-level evidence is reviewed, record its timestamp and timezone, host/agent, source event or rule, concise observed facts, and a link to relevant evidence. Keep separate cases separate. Do not infer a causal sequence from case numbering or scenario descriptions. If no event is found, document the search window and relevant collection or retention limitation as a visibility gap.
+For each case, record the event time and timezone, host or agent, source event or rule, the relevant observed fields, and a link to the supporting record. Keep separate investigations separate. If a search returns no event, include the search window and collection limits; do not treat that result as proof the activity did not occur.
